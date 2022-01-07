@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    background-color: gray;
+}
+.home{
+    background-color: black;
+    color: white;
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        li{
+            cursor: pointer;
+            font-size: 2rem;
+            margin: 1rem;
+        }
+    }
+}

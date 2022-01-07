@@ -1,24 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home'
+import React, { useState } from 'react'
+
 
 function App() {
+  const [modeName, setmodeName] = useState('night')
+  const [styleColor, setstyleColor] = useState({
+    backgroundColor : "black",
+    color : 'white',
+  })
+  const clicked = ()=>{
+    if(styleColor.backgroundColor=="black"){
+      setmodeName("night")
+      setstyleColor({
+        backgroundColor : "white",
+        color : 'black'
+      })
+      document.body.style.backgroundColor = "whiteSmoke"
+
+    }
+    else{
+      setmodeName('day')
+      setstyleColor({
+        backgroundColor : 'black',
+        color : 'white'
+      })
+      document.body.style.backgroundColor = "gray"
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Home myStyle={styleColor} mode={modeName} clickState={clicked} />
+    </>
   );
 }
 
